@@ -28,7 +28,6 @@ export default class Cart extends Component {
     render() {
         
         const {cartItems} = this.props
-        console.log("=====",cartItems)
         return (  
             <div>
                 {cartItems.length === 0 ? ( <div className="cart cart-header">Cart is empty</div>)

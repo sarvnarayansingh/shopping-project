@@ -49,24 +49,25 @@ class App extends Component {
     console.log("sort", event.target.value);
     this.setState({
       sort:sort,
-      products:this.state.products.slice().sort((a,b)=>(
+      Products:(data.products.slice().sort((a,b)=>(
         sort === "lowest" ?
         a.price > b.price ? 1 :-1
         :sort === "highest" ?
         a.price < b.price ? 1 : -1
         :a._id < b._id ? 1 : -1
       )
-      )
+      ))
     })
   }
+  
   filterProducts= (event) =>{
     console.log("filter",event.target.value);
     if (event.target.value === ""){
-      this.setState({size: event.target.value, products:data.products})
+      this.setState({size: event.target.value, Products:data.products})
     } else {
       this.setState({
         size:event.target.value,
-        products:data.products.filter((product) => 
+        Products:data.products.filter((product) => 
         product.availableSizes.indexOf(event.target.value) >= 0
         )
       })
@@ -75,6 +76,7 @@ class App extends Component {
   }
 
   render() {
+    console.log("====--",this.state.Products)
     return (
       <div className="grid-container">
         <header>
@@ -88,7 +90,7 @@ class App extends Component {
               sort={this.state.sort}
               filterProducts={this.filterProducts}
               sortProducts={this.sortProducts} />
-            <Products products ={this.state.Products}
+            <Products products={this.state.Products}
             addToCart = {this.addToCart} />
             </div>
             <div className="sidebar">

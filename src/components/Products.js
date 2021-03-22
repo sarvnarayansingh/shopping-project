@@ -20,6 +20,7 @@ import Zoom from 'react-reveal/Zoom'
     }
 
     render() {
+        console.log("===============", this.props.products)
         return (
             <div>
                 <Fade bottom cascade>
@@ -35,7 +36,7 @@ import Zoom from 'react-reveal/Zoom'
                                     </a>
                                 </div>
                                 <div className="product-price">
-                                    {/* <div>{formatCurrency(product.price)}</div> */}
+                                    <div>{formatCurrency(product.price)}</div>
                                     <button className="button primary" onClick={() =>this.props.addToCart(product)}> Add To Cart</button>
                                 </div>
                             </li>
